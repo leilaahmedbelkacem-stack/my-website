@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>واجهة الكلية - خدمات الطالب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Tajawal', sans-serif;
+  background: url('1.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+}
+/* بانر واسم الكلية */ .header-container { position: relative; width: 100%; height: 200px; display: flex; justify-content: center; align-items: center; }
+
+.college-name {
+  background: rgba(255,255,255,0.95);
+  padding: 20px 40px;
+  border-radius: 15px;
+  font-size: 2.2rem; /* تكبير اسم الكلية */
+  font-weight: 900;
+  color: #0d47a1;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: moveUp 1.5s forwards;
+}
+
+@keyframes moveUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* الحاوية للقوائم - flex أفقي */
+.menu-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around; /* ترك فراغ بين الأعمدة */
+  flex-wrap: nowrap;
+}
+
+/* الأعمدة */
+.menu-column {
+  flex: 0 0 28%; /* تقليل عرض الأعمدة قليلاً */
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 20px 15px;
+}
+
+/* العناوين داخل الإطار */
+.menu-column h3 {
+  color: #0d47a1;
+  font-size: 1.5rem; /* تكبير عنوان العمود */
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+/* العنصر الفرعي - puce صغيرة جدًا */
+.menu-column ul li .sub-item {
+  position: relative;
+  margin-top: 4px;
+  padding-right: 18px;
+  font-size: 0.8rem;
+  color: #555;
+  transition: color 0.3s;
+}
+
+/* puce صغيرة جدًا للعنصر الفرعي */
+.menu-column ul li .sub-item::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  background-color: #42a5f5;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* تأثير hover على العنصر الفرعي */
+.menu-column ul li .sub-item:hover::before {
+  transform: scale(1.8);  /* تكبير النقطة عند المرور بالماوس */
+  background-color: #0d47a1;  /* تغير لون النقطة عند hover */
+}
+
+.menu-column ul li .sub-item:hover {
+  color: #0d47a1;  /* تغير لون النص عند hover */
+}
+.menu-column ul li span {
+  display: block;
+  font-size: 1rem;      /* الحجم الأكبر */
+  font-weight: 700;     /* gras */
+  color: #333;
+}
+
+
+/* روابط النصوص */
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-column ul li {
+  margin: 12px 0;
+  padding-right: 20px; /* RTL */
+  position: relative;
+}
+
+/* الدائرة الملونة (puce) على اليمين مع تأثير hover */
+.menu-column ul li::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #0d47a1;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* عند المرور على العنصر تكبر الدائرة وتصبح أفتح لون */
+.menu-column ul li:hover::before {
+  transform: translateY(-50%) scale(1.5);
+  background-color: #42a5f5;
+}
+
+/* روابط العناصر */
+.menu-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  display: block;
+  transition: color 0.3s;
+}
+
+.menu-column ul li a:hover {
+  color: #0d47a1;
+}
+
+/* responsive */
+@media(max-width:991px){
+  .menu-container {
+    flex-wrap: wrap; 
+  }
+  .menu-column {
+    flex: 0 0 45%;
+    margin-bottom: 15px;
+  }
+}
+
+@media(max-width:576px){
+  .menu-column { flex: 0 0 100%; margin-bottom: 15px; }
+  .college-name { font-size: 1.6rem; padding: 12px 20px; }
+}
+
+.sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+}
+
+.sub-list li {
+  margin: 6px 0;
+  padding-right: 18px;
+  position: relative;
+  font-size: 0.85rem;
+}
+
+.sub-list li::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #42a5f5;
+  border-radius: 50%;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- بانر واسم الكلية -->
+<div class="header-container">
+  <div class="college-name">كلية العلوم الإقتصادية ، التجارية و علوم التسيير</div>
+</div>
+
+<!-- القوائم -->
+<div class="menu-container">
+
+  <!-- خدمات الطالب (يمين) -->
+  <div class="menu-column">
+    <h3>خدمات الطالب</h3>
+    <ul>
+      <li><a href="https://forms.gle/hSoutKXWYiynXhRBA">طلب شهادة مدرسية</a></li>
+      <li><a href="https://forms.gle/AmUGZLTQeHbqfKEg9">طلب كشف النقاط</a></li>
+    </ul>
+  </div>
+
+  <!-- الأقسام (وسط) -->
+  <div class="menu-column">
+    <h3>الأقسام</h3>
+    <ul>
+      <li><a href="https://fseg.univ-temouchent.edu.dz/departement/61b0bee9d2477">العلوم الاقتصادية</a></li>
+      <li><a href="https://fseg.univ-temouchent.edu.dz/departement/61b1e61447c5b">المالية والمحاسبة</a></li>
+      <li><a href="https://fseg.univ-temouchent.edu.dz/departement/61b1e5060b106">علوم التسيير</a></li>
+    </ul>
+  </div>
+
+  <!-- الإدارة والمصالح (يسار) -->
+  <div class="menu-column">
+  <h3>الإدارة والمصالح</h3>
+  <ul>
+   <li class="main-item">
+  <span>مصلحة المستخدمين</span>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6Uu_bwRnFeuUEoY5Bk_S2oUAcOwq_J3RAWqlCuw49aRjgUw/viewform" class="sub-item">طلب شهادةالعمل</a>
+</li>
+    <li class="main-item"> 
+        <span>مصلحةالنشاطات الثقافية و الرياضية</span> 
+             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdp33BYYmJBn72427JTwjgiRT2fvSmIxF2ifM2gvLqHuFV6Og/viewform?usp=publish-editor" class="sub-item">طلب التسجيل في النشاطات الثقافية و الرياضية </a>
+             </li>
+    <li><a href="contact.html">تواصلوا معنا</a></li>
+  </ul>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
